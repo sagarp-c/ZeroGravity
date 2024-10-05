@@ -90,8 +90,8 @@
 <!-- Hero Section -->
 <section class="relative full-page">
     <div class="clip">
-        <video class="video-bg" playsinline autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="zero.mp4" type="video/mp4">
+        <video id="backgroundVideo" class="video-bg" playsinline autoplay loop muted style="width: 100%; height: 100%; object-fit: cover; display: none;">
+            <source src="2424.mp4" type="video/mp4">
         </video>
         <div class="gradient-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent, transparent, rgba(0, 0, 0, 0.7)); z-index: 1;"></div>
         <div class="container mx-auto text-center relative z-10 py-48">
@@ -104,6 +104,20 @@
         </div>
     </div>
 </section>
+
+<script>
+    let videoPlayed = false;
+
+    window.addEventListener('scroll', () => {
+        if (!videoPlayed) {
+            const video = document.getElementById('backgroundVideo');
+            video.style.display = 'block'; // Show the video
+            video.play(); // Start playing the video
+            videoPlayed = true; // Prevent further attempts to play
+        }
+    });
+</script>
+
 
 
     <!-- Space Missions Section -->
