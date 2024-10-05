@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PACE Explorer: Ocean and Atmosphere Data Visualization for Students. An educational platform to explore NASA PACE satellite data.">
+    <meta name="keywords" content="PACE Explorer, NASA PACE, ocean data, atmosphere data, education">
+    <title>PACE Explorer: Ocean and Atmosphere Data Visualization for Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .full-page {
+            min-height: 100vh;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-gray-900 text-white fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <img alt="PACE Explorer logo" class="h-10" src="https://storage.googleapis.com/a1aa/image/eaV08FM7iCR0WaDAqAvf7ToU0H2gXTCrJUfe78HNzZtSztKOB.jpg"/>
+                <nav class="ml-10 space-x-4 relative flex items-center">
+                    <a class="hover:text-gray-400" href="#home">Home</a>
+                    <div class="relative">
+                        <button class="hover:text-gray-400 focus:outline-none" id="contentsDropdown" onclick="toggleDropdown()">
+                            Contents
+                        </button>
+                        <div id="dropdownMenu" class="hidden absolute bg-white text-gray-800 shadow-lg rounded mt-1 z-10">
+                            <a class="block px-4 py-2 hover:bg-gray-200" href="#dashboard">Interactive Data</a>
+                            <a class="block px-4 py-2 hover:bg-gray-200" href="#videos">Videos</a>
+                            <a class="block px-4 py-2 hover:bg-gray-200" href="#lessons">Lesson Plans</a>
+                            <a class="block px-4 py-2 hover:bg-gray-200" href="#game">Ocean Explorer Game</a>
+                        </div>
+                    </div>
+                    <a class="hover:text-gray-400" href="#about">About PACE</a>
+                    <a class="hover:text-gray-400" href="#contact">Contact Us</a>
+                </nav>
+            </div>
+            <a class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" href="#dashboard">Explore the Ocean with PACE</a>
+        </div>
+    </header>
+    
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('hidden');
+        }
+        
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('#contentsDropdown')) {
+                const dropdowns = document.getElementsByClassName("absolute");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (!openDropdown.classList.contains('hidden')) {
+                        openDropdown.classList.add('hidden');
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-cover bg-center hero full-page" style="background-image: url('https://placehold.co/1200x600');">
+        <div class="container mx-auto text-center relative z-10 py-48">
+            <h1 class="text-5xl font-bold text-white">Explore the Ocean with PACE</h1>
+            <p class="text-lg text-white mt-4">Discover NASA’s PACE mission and its significance in understanding our oceans.</p>
+            <a href="#dashboard" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-4 inline-block">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Introduction Video -->
+    <section class="bg-white py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Introduction to the PACE Mission</h2>
+            <iframe class="mt-10 w-full h-64 md:h-96" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Interactive Data Dashboard -->
+    <section id="dashboard" class="bg-gray-100 py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Interactive Data Dashboard</h2>
+            <p class="text-lg text-gray-600 mt-2">Explore real-time PACE satellite data visualizations.</p>
+            <div class="mt-10">
+                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Visualizations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lesson Plans and Resources -->
+    <section id="lessons" class="bg-white py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Lesson Plans and Resources</h2>
+            <p class="text-lg text-gray-600 mt-2">Download lesson plans categorized by grade level.</p>
+            <div class="mt-10">
+                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Lesson Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ocean Explorer Game -->
+    <section id="game" class="bg-gray-100 py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Ocean Explorer Game</h2>
+            <p class="text-lg text-gray-600 mt-2 p-4">Explore virtual oceans and solve environmental challenges.</p>
+            <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">Start Game</a>
+        </div>
+    </section>
+
+    <!-- Educational Videos -->
+    <section id="videos" class="bg-white py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Educational Videos</h2>
+            <p class="text-lg text-gray-600 mt-2">Watch our series of short videos explaining core ocean concepts.</p>
+            <div class="mt-10">
+                <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">View Video Library</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the PACE Mission -->
+    <section id="about" class="bg-gray-100 py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">About the PACE Mission</h2>
+            <p class="text-lg text-gray-600 mt-2">Learn more about NASA's PACE mission and its goals.</p>
+            <p class="text-lg text-gray-600 mt-2 p-3">  </p>
+            <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">More Information</a>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="bg-white py-24">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Contact Us</h2>
+            <form class="mt-10">
+                <input type="text" placeholder="Your Name" class="border p-2 w-1/2 mb-4" required>
+                <input type="email" placeholder="Your Email" class="border p-2 w-1/2 mb-4" required>
+                <textarea placeholder="Your Message" class="border p-2 w-1/2 mb-4" rows="4" required></textarea>
+                
+            </form>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Send Message</button>
+            <div class="mt-4">
+                <p>Follow us on:</p>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>© 2023 PACE Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
