@@ -40,6 +40,97 @@
             padding-bottom: 10px;
             border-radius: 15px;
         }
+        /* Feedback and Social Media Section Styling */
+.feedback-social-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #343a40, #495057); /* Dark gradient background */
+    color: #fff; /* White text color */
+}
+
+.container {
+    display: flex; /* Use flexbox to align items */
+    max-width: 1200px; /* Maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    width: 100%; /* Full width */
+}
+
+.social-media {
+    flex: 1; /* Takes up available space */
+    margin-right: 20px; /* Space between social media and feedback */
+}
+
+.feedback-form {
+    flex: 1; /* Takes up available space */
+}
+
+.feedback-form h2, .social-media h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feedback-form p, .social-media p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.feedback-form div {
+    margin-bottom: 15px;
+}
+
+.feedback-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px;
+    transition: border 0.3s; /* Transition for focus effect */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: #fff; /* White text color */
+}
+
+.feedback-form input:focus, .feedback-form textarea:focus {
+    border: 1px solid #ffd700; /* Gold border on focus */
+}
+
+.feedback-form button {
+    padding: 10px 20px;
+    background-color: #ffd700; /* Gold button */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.feedback-form button:hover {
+    background-color: #ffc107; /* Darker gold on hover */
+}
+
+.social-media ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-media li {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #ffd700; /* Gold text color for links */
+    font-weight: bold; /* Bold text for links */
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
     </style>
 </head>
 
@@ -159,6 +250,53 @@
 
     </section>
 
+   <!-- Feedback and Social Media Section -->
+   <section class="feedback-social-section">
+    <div class="container">
+        <div class="social-media">
+            <h2>Follow Us</h2>
+            <p>Stay connected with us on social media:</p>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+
+        <div class="feedback-form">
+            <h2>We'd Love Your Feedback!</h2>
+            <p>Let us know your thoughts and suggestions to improve.</p>
+            
+            <form>
+                <!-- Name Field -->
+                <div>
+                    <label for="name">Your Name</label>
+                    <input id="name" type="text" placeholder="Enter your name" required>
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                    <label for="email">Your Email</label>
+                    <input id="email" type="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Feedback Field -->
+                <div>
+                    <label for="message">Your Feedback</label>
+                    <textarea id="message" rows="5" placeholder="Enter your feedback here" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+    
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-4  ">
         <div class="container mx-auto text-center ">
