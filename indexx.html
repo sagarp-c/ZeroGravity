@@ -88,36 +88,20 @@
 
 
 <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="relative full-page">
-    <div class="clip">
-        <video id="backgroundVideo" class="video-bg" playsinline muted style="width: 100%; height: 100%; object-fit: cover; display: none;">
-            <source src="2424.mp4" type="video/mp4">
-        </video>
-        <div class="gradient-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent, transparent, rgba(0, 0, 0, 0.7)); z-index: 1;"></div>
-        <div class="container mx-auto text-center relative z-10 py-48">
-            <h1 class="text-5xl font-bold text-white">The Orion Astropreneur Space Academy</h1>
-            <p class="text-lg text-white mt-4">Accelerating talents and start-ups to enrich opportunities and understanding.</p>
-            <div class="mt-6">
-                <input class="px-4 py-2 rounded-l" placeholder="Enter email address" type="email" />
-                <button class="bg-gray-700 text-white px-4 py-2 rounded-r hover:bg-gray-800">Subscribe</button>
-            </div>
-        </div>
-    </div>
-</section>
+<!--Video Entry-->
 
-<script>
-    let videoPlayed = false;
+<div class="clip" >
+   
+  <video class="video-bg"  playsinline  autoplay loop muted style="  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent, transparent, rgba(0, 0, 0, 0.7));">
+    <source  src="./zero.mp4" type="video/mp4" >
+  </video>
+  <div class="gradient-overlay" style="z-index: -1;"></div>
 
-    window.addEventListener('scroll', () => {
-        if (!videoPlayed) {
-            const video = document.getElementById('backgroundVideo');
-            video.style.display = 'block'; // Show the video
-            video.play(); // Start playing the video
-            videoPlayed = true; // Prevent further attempts to play
-        }
-    });
-</script>
+  <div class="logo-img " >
+    <h1><span  style="z-index: 24;" id="words"></span></h1>
+   
+  </div>
+</div>
 
 
 
