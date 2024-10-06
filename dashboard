@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PACE Explorer: Ocean and Atmosphere Data Visualization for Students. An educational platform to explore NASA PACE satellite data.">
+    <meta name="keywords" content="PACE Explorer, NASA PACE, ocean data, atmosphere data, education">
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <title>PACE Explorer: Ocean and Atmosphere Data Visualization for Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .full-page {
+            min-height: 100vh;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #1f2937;
+            /* Gray-900 */
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            color: #cbd5e1;
+            /* Gray-400 */
+        }
+        
+        .button {
+            background-color: #48bb78;
+            /* Green-500 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            /* Rounded */
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+        
+        .button:hover {
+            background-color: #38a169;
+            /* Green-600 */
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .full-page {
+            min-height: 100vh;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .card1 {
+            background-color: aliceblue;
+            height: 60vh;
+            width: 25vw;
+            border-radius: 15px;
+        }
+        
+        .cards {
+            background-color: aliceblue;
+            height: 50vh;
+            width: 60vw;
+            border-radius: 15px;
+        }
+        
+        .img1 {
+            height: 38vh;
+            width: 100vw;
+            margin-top: 36px;
+            padding-bottom: 10px;
+            border-radius: 15px;
+        }
+        
+        .imgs {
+            height: 20vh;
+            width: 100vw;
+            margin-top: 36px;
+            padding-bottom: 10px;
+            border-radius: 15px;
+        }
+        
+        .full-page {
+            min-height: 100vh;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #1f2937;
+            /* Gray-900 */
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+        
+        nav a:hover {
+            color: #cbd5e1;
+            /* Gray-400 */
+        }
+        
+        .button {
+            background-color: #48bb78;
+            /* Green-500 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            /* Rounded */
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+        
+        .button:hover {
+            background-color: #38a169;
+            /* Green-600 */
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+    <header>
+        <div class="logo">
+            <img alt="PACE Explorer logo" style="height: 40px;" src="https://storage.googleapis.com/a1aa/image/eaV08FM7iCR0WaDAqAvf7ToU0H2gXTCrJUfe78HNzZtSztKOB.jpg" />
+        </div>
+
+        <div class="ml-auto">
+            <nav>
+                <a href="#home ">Home</a>
+                <div class="dropdown ">
+                    <a href="# " id="contentsDropdown ">Contents</a>
+                    <div class="dropdown-content bg-black" id="dropdownMenu ">
+                        <a href="#dashboard ">Interactive Data</a>
+                        <a href="#videos ">Videos</a></br>
+                        <a href="#lessons ">Lesson Plans</a>
+                        <a href="#game ">Explorer Game</a>
+                    </div>
+                </div>
+
+                <a href="#about ">About PACE</a>
+                <a href="#contact ">Contact Us</a>
+
+            </nav>
+        </div>
+
+        <div>
+            <a class="button " href="#dashboard ">Explore the Ocean with PACE</a>
+            <a class="button " href="#signup ">Sign Up</a>
+
+        </div>
+    </header>
+
+    <script>
+        // JavaScript for dropdown menu
+        document.getElementById('contentsDropdown').onclick = function() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        };
+
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('#contentsDropdown')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content ");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('#contentsDropdown')) {
+                const dropdowns = document.getElementsByClassName("absolute ");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (!openDropdown.classList.contains('hidden')) {
+                        openDropdown.classList.add('hidden');
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- page start -->
+     <!-- Dashboard Section -->
+<section id="dashboard" class="relative bg-cover bg-center hero"
+style="background-image: url('https://images.ctfassets.net/ykljvmtfxwdz/LgDixjaZ36ZQfIN0E9GSr/6e2416cbf4758f1b1780cbe5707ac75a/home-hero-background.jpeg');">
+<div class="container mx-auto text-center relative z-10 py-48">
+    <h1 class="text-5xl font-bold text-white">Dashboard</h1>
+    <p class="text-lg text-white mt-4">Welcome to your dashboard, where you can explore and visualize NASA's PACE mission data.</p>
+</div>
+</section>
+
+<!-- Dashboard Content -->
+<!-- Dashboard Content -->
+<div class="container mx-auto p-4 mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PACE Mission Overview</h5>
+                    <p class="card-text">Learn more about NASA's PACE mission and its objectives.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Data Visualization</h5>
+                    <p class="card-text">Explore and visualize NASA's PACE mission data using interactive tools and charts.</p>
+                    <a href="#" class="btn btn-primary">Explore Data</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lesson Plans</h5>
+                    <p class="card-text">Access lesson plans and educational resources for teaching NASA's PACE mission in the classroom.</p>
+                    <a href="#" class="btn btn-primary">View Lesson Plans</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Community Forum</h5>
+                    <p class="card-text">Join the community forum to discuss NASA's PACE mission and share resources with other educators and students.</p>
+                    <a href="#" class="btn btn-primary">Join the Forum</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12 text-right">
+            <button class="btn btn-secondary" id="profile-button">Profile</button>
+            <button class="btn btn-danger" id="logout-button">Log Out</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="mt-4 text text-center p-3">
+            <p>Follow us on:</p>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+        <div class="container mx-auto text-center">
+            <p>© 2023 PACE Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
