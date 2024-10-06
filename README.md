@@ -44,10 +44,17 @@ We'd like to express our gratitude to the PACE mission team at NASA for making t
 ---
 
 
-Source: Conversation with Copilot, 6/10/2024
+Source: 6/10/2024
 (1) Keeping PACE: Introduction to PACE Mission, Products, and Data .... https://www.earthdata.nasa.gov/learn/webinars-and-tutorials/pace-mission-products-data-discovery-webinar.
+
 (2) NASA’s PACE Data on Ocean, Atmosphere, Climate Now Available. https://www.nasa.gov/earth/nasas-pace-data-on-ocean-atmosphere-climate-now-available/.
+
 (3) NASA PACE - Home. https://pace.gsfc.nasa.gov/.
+
 (4) PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) Mission. https://www.eoportal.org/satellite-missions/pace-mission.
+
 (5) NASA's PACE data on ocean, atmosphere, climate now available - MSN. https://www.msn.com/en-us/news/technology/nasa-s-pace-data-on-ocean-atmosphere-climate-now-available/ar-BB1ltoXE.
+
 (6) undefined. https://pace.oceansciences.org/access_pace_data.htm.
+
+(7) conversation with copilot
