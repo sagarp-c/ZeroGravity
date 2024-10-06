@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PACE Explorer: Ocean and Atmosphere Data Visualization for Students. An educational platform to explore NASA PACE satellite data.">
+    <meta name="keywords" content="PACE Explorer, NASA PACE, ocean data, atmosphere data, education">
+    <title>PACE Explorer: Ocean and Atmosphere Data Visualization for Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .full-page {
+            min-height: 100vh;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1f2937;
+            /* Gray-900 */
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #cbd5e1;
+            /* Gray-400 */
+        }
+
+        .button {
+            background-color: #48bb78;
+            /* Green-500 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            /* Rounded */
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+
+        .button:hover {
+            background-color: #38a169;
+            /* Green-600 */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Style for the boxed content in the About section */
+        .about-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img alt="PACE Explorer logo" style="height: 40px;"
+                src="https://storage.googleapis.com/a1aa/image/eaV08FM7iCR0WaDAqAvf7ToU0H2gXTCrJUfe78HNzZtSztKOB.jpg" />
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <div class="dropdown">
+                <a href="#" id="contentsDropdown">Contents</a>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="#dashboard">Interactive Data</a>
+                    <a href="#videos">Videos</a>
+                    <a href="#lessons">Lesson Plans</a>
+                    <a href="#game">Ocean Explorer Game</a>
+                </div>
+            </div>
+            <a href="#about">About PACE</a>
+            <a href="#contact">Contact Us</a>
+            <a class="button" href="#dashboard">Explore the Ocean with PACE</a>
+            <a class="button" href="#signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <script>
+        // JavaScript for dropdown menu
+        document.getElementById('contentsDropdown').onclick = function () {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        };
+
+        // Close the dropdown if clicked outside
+        window.onclick = function (event) {
+            if (!event.target.matches('#contentsDropdown')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-cover bg-center hero"
+        style="background-image: url('https://d2mkdgs306yypx.cloudfront.net/-/media/SkyWorks/Images/IA/Aerospace-Space-iStock-small.jpg');">
+        <div class="container mx-auto text-center relative z-10 py-48">
+            <h1 class="text-5xl font-bold text-white">Explore the Ocean with PACE</h1>
+            <p class="text-lg text-white mt-4">Discover NASA’s PACE mission and its significance in understanding our
+                oceans.</p>
+
+        </div>
+    </section>
+
+    <!-- About the PACE Mission -->
+    <section id="about" class="bg-gray-100 py-24">
+        <div class="container mx-auto text-center p-4">
+            <div class="about-box">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/ZLDzvt7XRHQ" title="A Sea of Data: The PACE Mission" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                <h1 class="text-4xl font-bold mb-4">About PACE Explorer</h1>
+                
+
+                <p class="text-lg text-gray-600 mb-4">The PACE Explorer platform is designed to bring NASA’s
+                    cutting-edge PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) satellite data to classrooms around the
+                    world. Our mission is to help students and educators understand the important role that Earth’s
+                    oceans and atmosphere play in the planet's climate system. By offering interactive data
+                    visualizations, engaging educational videos, and lesson plans, we aim to improve ocean literacy and
+                    inspire the next generation of scientists and environmentalists.</p>
+                <p class="text-lg text-gray-600 mb-4">Through real-time data visualizations of ocean and atmospheric
+                    health, we make NASA’s vast, open-source data accessible and easy to understand. From tracking
+                    phytoplankton blooms to exploring the carbon cycle, PACE Explorer helps students engage with
+                    real-world data and understand how the ocean and atmosphere interact to regulate Earth’s climate.
+                </p>
+
+                <h3 class="text-3xl font-bold mb-4">What is the PACE Mission?</h3>
+                <p class="text-lg text-gray-600 mb-4">The Plankton, Aerosol, Cloud, ocean Ecosystem (PACE) mission,
+                    launched in February 2024, is one of NASA’s most ambitious efforts to monitor the Earth’s oceans and
+                    atmosphere. By using cutting-edge instruments, PACE helps scientists understand how:</p>
+                <ul class="list-disc ml-4 mb-4 text-left">
+                    <li>Phytoplankton (tiny ocean plants) contribute to marine ecosystems and the global carbon cycle.
+                    </li>
+                    <li>The carbon exchange between the ocean and the atmosphere affects Earth’s climate.</li>
+                    <li>Aerosols influence the growth of phytoplankton and impact cloud formation.</li>
+                </ul>
+
+                <h3 class="text-3xl font-bold mb-4">Instruments on PACE:</h3>
+                <ul class="list-disc ml-4 mb-4 text-left">
+                    <li>OCI (Ocean Color Instrument): Measures light reflected by the ocean to detect phytoplankton and
+                        other important marine indicators.</li>
+                    <li>SPEXone Polarimeter and HARP2 Polarimeter: Measure aerosols and cloud properties, helping
+                        scientists understand how these factors influence the Earth’s atmosphere and oceans.</li>
+                </ul>
+
+                <h3 class="text-3xl font-bold mb-4">Our Goal</h3>
+                <p class="text-lg text-gray-600 mb-4">We created PACE Explorer to provide a bridge between the complex
+                    data gathered by NASA’s PACE mission and the classroom. Our platform offers:</p>
+                <ul class="list-disc ml-4 mb-4 text-left">
+                    <li>Real-time visualizations of global ocean and atmospheric data.</li>
+                    <li>Lesson plans designed by educators, aligned with the Next Generation Science Standards (NGSS).
+                    </li>
+                    <li>Games and interactive tools that bring ocean and atmosphere science to life.</li>
+
+                    <a href="https://pace.gsfc.nasa.gov/"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-4 inline-block">More Info</a>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="mt-4 text text-center p-3">
+            <p>Follow us on:</p>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-600 hover:text-blue-500 mx-2"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+        <div class="container mx-auto text-center">
+            <p>© 2023 PACE Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
