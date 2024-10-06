@@ -7,7 +7,7 @@ Divin Johny    -  https://github.com/
 
 Saphal S Brijesh   -  https://github.com/
 
-Ghani P K   -   https://github.com/ 
+Gani PK   -   https://github.com/Gani-PK
 
 Navadeep C K    -   https://github.com/mindmaster17
 
