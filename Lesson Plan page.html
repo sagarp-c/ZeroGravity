@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACE Explorers Lesson Plan:</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom right, #1f1c2c, #928DAB);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 4px solid #1a73e8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            animation: slideIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #2c2c54;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #1a73e8;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1a73e8;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: #1a73e8;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 20px;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #d3d3d3;
+        }
+
+        .lesson-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+            transform: translateY(20px);
+            animation-delay: 0.3s;
+        }
+
+        /* New Box Styling for Resources */
+        .resource-box {
+            background-color: #ffffff;
+            border: 2px solid #1a73e8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .resource-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .resource-box h2 {
+            color: #1a73e8;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .resource-box p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Chatbot Section */
+        #chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        #chatbox-header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #chatbox-messages {
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #1a73e8;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #e0e0e0;
+            color: black;
+            align-self: flex-start;
+        }
+
+        #chatbox-input {
+            display: flex;
+            padding: 10px;
+            background-color: white;
+        }
+
+        #chat-input {
+            flex: 1;
+            border: 1px solid #1a73e8;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        #send-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c2c54;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #1a73e8;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Scroll-to-Section */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+
+            .video-container iframe {
+                width: 90%;
+                height: 200px;
+            }
+
+            #chatbox {
+                width: 90%;
+            }
+        }
+
+        /* Video Section */
+        .video-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .video-container iframe {
+            width: 45%;
+            height: 315px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>PACE Explorers: Space-Themed Lesson Plan</h1>
+        <p>Explore the Universe of Satellite Data & AI Integration</p>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#activities">Activities</a>
+        <a href="#resources">Resources</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#videos">Videos</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#chatbox" id="toggle-chat">Chatbot</a>
+    </nav>
+
+    <!-- Overview Section -->
+    <section id="overview">
+        <div class="lesson-content lesson-box">
+            <h2>Overview</h2>
+            <p>This project aims to integrate satellite data, AI, and geospatial analytics for educational purposes, focusing on environmental science concepts.</p>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+        <div class="lesson-content lesson-box">
+            <h2>Activities</h2>
+            <ol>
+                <li><strong>Introduction to Satellite Data:</strong>
+                    <p>Begin with an overview of how satellite data is collected and its significance in monitoring the Earth's environment.</p>
+                </li>
+                <li><strong>API Exploration:</strong>
+                    <p>Guide students to access and utilize satellite data through the provided APIs. Show them how to query satellite data and visualize it using basic tools.</p>
+                </li>
+                <li><strong>Group Project:</strong>
+                    <p>Divide students into groups and assign them a project to analyze a specific environmental issue using satellite data. They will present their findings using visual data representations.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <div class="lesson-content">
+            <h2>Resources</h2>
+            <div class="resource-box">
+                <h2><a href="https://docs.google.com/document/d/16RaGwZG0_Zgm_JTKAho9GCnjAow_s52NHgr9TqfZRy0/edit?usp=sharing" target="_blank">What is PACE?</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://docs.google.com/document/d/1_HZ8ZNQRijYaS3MpAsaxFUnw-IY16qPSIwr3-qbBAPI/edit?usp=sharing" target="_blank">Module 1 Overview</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://geoavisos.conae.gov.ar/" target="_blank">Geoavisos CONAE</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://catalog.saocom.conae.gov.ar/catalog/#/" target="_blank">SAOCOM Catalog</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://catalogos2.conae.gov.ar/humedad_suelos/default.aspx?satelite=SMOS" target="_blank">Soil Moisture Data (SMOS)</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://api.nasa.gov/" target="_blank">NASA APIs</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://www.earthdata.nasa.gov/topics/rss/Ocean" target="_blank">Ocean Updates RSS</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://earthdata.nasa.gov/topics/rss/Terrestrial%20Hydrosphere" target="_blank">Terrestrial Hydrosphere RSS</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://earthdata.nasa.gov/topics/rss/Solid%20Earth" target="_blank">Solid Earth RSS</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://oceancolor.gsfc.nasa.gov/data/download_methods/#appkey" target="_blank">Earth Color Data Access</a></h2>
+            </div>
+            <div class="resource-box">
+                <h2><a href="https://earthdata.nasa.gov/topics/rss/Atmosphere" target="_blank">Atmosphere RSS</a></h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section id="evaluation">
+        <div class="lesson-content">
+            <h2>Evaluation Criteria</h2>
+            <ul>
+                <li>Active participation in group discussions and activities.</li>
+                <li>Quality of analysis in the group project report.</li>
+                <li>Ability to effectively utilize APIs and satellite data.</li>
+                <li>Understanding of the applications of satellite data in environmental monitoring.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <div class="lesson-content">
+            <h2>Educational Videos from NASA</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/CzPLSKBNq5g" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/nkA2s-wIYlY" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/NvS33wHPCRU" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/nW_LD7E8mcg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+        <div class="lesson-content">
+            <h2>Feedback</h2>
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="feedback">Your Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" required></textarea><br><br>
+                <button type="submit" style="background-color: #1a73e8; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Submit Feedback</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <div id="chatbox">
+        <div id="chatbox-header">Chat with AI</div>
+        <div id="chatbox-messages"></div>
+        <div id="chatbox-input">
+            <input type="text" id="chat-input" placeholder="Ask me anything about space..." />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 PACE Explorers. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Toggle chatbox visibility
+        const chatToggle = document.getElementById('toggle-chat');
+        const chatbox = document.getElementById('chatbox');
+        chatToggle.addEventListener('click', () => {
+            chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Chatbot functionality
+        const messagesDiv = document.getElementById('chatbox-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        sendBtn.addEventListener('click', async () => {
+            const userInput = chatInput.value;
+            if (userInput) {
+                addMessage(userInput, 'user-message');
+                chatInput.value = '';
+
+                // Call the ChatGPT API
+                const response = await getChatbotResponse(userInput);
+                addMessage(response, 'bot-message');
+            }
+        });
+
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', type);
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        async function getChatbotResponse(userInput) {
+            const apiUrl = 'https://api.openai.com/v1/chat/completions'; // ChatGPT API endpoint
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer YOUR_API_KEY` // Replace with your OpenAI API key
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [{ role: 'user', content: userInput }]
+                })
+            });
+            const data = await response.json();
+            return data.choices[0].message.content; // Adjust based on the API response structure
+        }
+
+        // Fade in effect for sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            section.style.animationDelay = `${index * 0.2}s`;
+            section.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
