@@ -2,9 +2,13 @@
 Team members
 
 Sagar P (Lead)   -   https://github.com/sagarp-c
+
 Divin Johny    -  https://github.com/
+
 Saphal S Brijesh   -  https://github.com/
-Ghani P K   -   https://github.com/
+
+Ghani P K   -   https://github.com/ 
+
 Navadeep C K    -   https://github.com/mindmaster17
 
 
@@ -28,10 +32,8 @@ The **PACE** mission aims to extend and improve NASA's more than 20-year record 
 4. **Community Engagement**: Connect with other PACE enthusiasts and researchers.
 
 ## Getting Started
-1. **Installation**: Clone this repository to your local machine.
-2. **Dependencies**: Make sure you have the necessary dependencies installed (e.g., Node.js, React, etc.).
-3. **Run the App**: Use `npm start` or `yarn start` to launch the development server.
-4. **Explore the Data**: Dive into PACE data using the provided APIs or sample datasets.
+1. **Sign up**: https://sagarp-c.github.io/ZeroGravity/.
+2. **Explore the Data**: Dive into PACE data using the provided datasets.
 
 ## Contributing
 We welcome contributions! Feel free to add features, fix bugs, or improve documentation. Please follow our [contributing guidelines](CONTRIBUTING.md).
